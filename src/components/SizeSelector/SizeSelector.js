@@ -4,7 +4,7 @@ import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 const SizeSelector = ({ itemsPerPage, onChange }) => {
   return (
     <FormControl>
-      <InputLabel id="items-per-page-label">select</InputLabel>
+      <InputLabel id="items-per-page-label">Size</InputLabel>
       <Select
         labelId="items-per-page-label"
         id="items-per-page"

@@ -1,3 +1,4 @@
+import "./TagTable.css";
 import React from "react";
 import { useSelector } from "react-redux";
 import {
@@ -10,13 +11,25 @@ import {
   Paper,
 } from "@mui/material";
 
-const TagTable = ({ itemsPerPage }) => {
+const TagTable = ({ itemsPerPage, currentPage, sortField, sortDirection }) => {
   const tags = useSelector((state) => state.tags);
-  const startIndex = 0;
-  const endIndex = startIndex + itemsPerPage - 1;
-  const displayedTags = tags.slice(startIndex, endIndex);
+  const sortedTags = tags.slice().sort((a, b) => {
+    const valueA = a[sortField];
+    const valueB = b[sortField];
+    if (valueA < valueB) {
+      return sortDirection === "asc" ? -1 : 1;
+    }
+    if (valueA > valueB) {
+      return sortDirection === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const displayedTags = sortedTags.slice(startIndex, endIndex);
 
   return (
+    <div className="tag-table-container">
     <TableContainer component={Paper} variant="outlined">
       <Table>
         <TableHead>
@@ -37,6 +50,7 @@ const TagTable = ({ itemsPerPage }) => {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 };
 
