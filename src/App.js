@@ -16,14 +16,21 @@ function App() {
   const [sortDirection, setSortDirection] = useState("asc");
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const dispatch = useDispatch();
-  const totalPages = useSelector((state) => state.totalPages);
+  const tags = useSelector((state) => state.tags);
+  
 
   useEffect(() => {
     dispatch(fetchTags())
       .then(() => setLoading(false))
       .catch((error) => console.error("Error fetching data:", error));
   }, [dispatch]);
+
+  useEffect(() => {
+    const newTotalPages = Math.ceil(tags.length / itemsPerPage);
+    setTotalPages(newTotalPages);
+  }, [tags, itemsPerPage]);
 
   const handleItemsPerPageChange = (event) => {
     setItemsPerPage(event.target.value);
