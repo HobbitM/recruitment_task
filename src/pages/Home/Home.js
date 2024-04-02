@@ -1,6 +1,8 @@
 import "./Home.css";
+//dependencies
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
+//constants
 import PAGES from "../../constants/pages";
 
 export default function Home() {

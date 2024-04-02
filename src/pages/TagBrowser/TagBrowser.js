@@ -1,6 +1,5 @@
-//css
 import "./TagBrowser.css";
-//imports
+//dependencies
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTags } from "../../actions";
