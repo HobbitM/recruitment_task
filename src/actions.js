@@ -3,11 +3,12 @@ import axios from 'axios';
 export const fetchTags = () => {
   return async (dispatch) => {
     try {
+      dispatch({ type: 'FETCH_TAGS_START' });
       const response = await axios.get("https://api.stackexchange.com/2.3/tags?site=stackoverflow");
       dispatch(setTags(response.data.items));
       dispatch(setTotalPages(Math.ceil(response.data.items.length / 10)));
     } catch (error) {
-      console.error("Error fetching data:", error);
+      dispatch({ type: 'FETCH_TAGS_FAILURE', payload: error.message });
     }
   };
 };

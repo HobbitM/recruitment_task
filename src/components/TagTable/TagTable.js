@@ -30,26 +30,26 @@ const TagTable = ({ itemsPerPage, currentPage, sortField, sortDirection }) => {
 
   return (
     <div className="tag-table-container">
-    <TableContainer component={Paper} variant="outlined">
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Count</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {displayedTags.map((tag) => (
-            <TableRow key={tag.name}>
-              <TableCell component="th" scope="row">
-                {tag.name}
-              </TableCell>
-              <TableCell align="right">{tag.count}</TableCell>
+      <TableContainer component={Paper} variant="outlined">
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell align="right">Count</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {displayedTags.map((tag) => (
+              <TableRow key={tag.name}>
+                <TableCell component="th" scope="row">
+                  {tag.name}
+                </TableCell>
+                <TableCell align="right">{tag.count}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };

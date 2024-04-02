@@ -1,0 +1,31 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  align-self: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.selectors {
+  align-self: flex-start;
+  position: relative;
+  left: 20%;
+}
+
+.back-button-container {
+  align-self: flex-start;
+}
+
+.p {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
